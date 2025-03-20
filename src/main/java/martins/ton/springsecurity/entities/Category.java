@@ -3,6 +3,7 @@ package martins.ton.springsecurity.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,11 +11,10 @@ import java.util.Set;
 @Table(name = "tb_category")
 public class Category {
 
-    private static final long serialVersionUID = 1L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "category_id")
+    private Long categoryId;
 
     private String name;
 
@@ -24,17 +24,17 @@ public class Category {
 
     public Category() {}
 
-    public Category(Long id, String name) {
-        this.id = id;
+    public Category(Long categoryId, String name) {
+        this.categoryId = categoryId;
         this.name = name;
     }
 
-    public Long getId() {
-        return id;
+    public Long getCategoryId() {
+        return categoryId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getName() {
@@ -54,11 +54,11 @@ public class Category {
         if (this == o) return true;
         if (!(o instanceof Category category)) return false;
 
-        return getId().equals(category.getId());
+        return getCategoryId().equals(category.getCategoryId());
     }
 
     @Override
     public int hashCode() {
-        return getId().hashCode();
+        return getCategoryId().hashCode();
     }
 }

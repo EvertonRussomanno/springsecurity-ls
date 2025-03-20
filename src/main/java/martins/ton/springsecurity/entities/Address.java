@@ -10,6 +10,7 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "address_id")
     private UUID addressId;
 
     @Column(nullable = false)
@@ -35,4 +36,8 @@ public class Address {
     private String complementation;
 
     private String ibgeCode;
+
+    @ManyToOne
+    @JoinColumn(name = "address_id", referencedColumnName = "userId", nullable = false)
+    private User user;
 }

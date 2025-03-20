@@ -10,7 +10,8 @@ public class Jobs {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "jobs_id")
+    private Long jobsId;
 
     private String jobName;
 
