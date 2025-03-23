@@ -39,6 +39,8 @@ public class User {
 
     private String userPhone;
 
+    private String email;
+
     private String userRg;
 
     private String userCpf;
@@ -62,13 +64,15 @@ public class User {
     public User() {
     }
 
-    public User(UUID userId, String userName, String name, String lastName, String password, String userPhone, String userRg, String userCpf, Instant creationTimestampUser) {
+    public User(UUID userId, String userName, String name, String lastName, String password, String userPhone,
+                String email,String userRg, String userCpf, Instant creationTimestampUser) {
         this.userId = userId;
         this.userName = userName;
         this.name = name;
         this.lastName = lastName;
         this.password = password;
         this.userPhone = userPhone;
+        this.email = email;
         this.userRg = userRg;
         this.userCpf = userCpf;
         this.creationTimestampUser = creationTimestampUser;
@@ -120,6 +124,14 @@ public class User {
 
     public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getUserRg() {
